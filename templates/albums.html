@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Álbumes de {{ artist }}</title>
+</head>
+<body>
+    <h1>Álbumes de {{ artist }}</h1>
+    <ul>
+        {% for album in albums %}
+        <li>
+            <strong>{{ album.name }}</strong><br>
+            <img src="{{ album.cover_url }}" alt="{{ album.name }}" width="300"><br><br>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
