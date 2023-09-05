@@ -1,0 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+$color-background: #181818;
+$color-item-background: #282828;
+$color-type: #fefefe;
+$thumb-side: 240px;
+$item-height: 360px;
+
+
+@mixin center-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.artists-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 155px;
+  }
+
+.artist {
+    width: $thumb-side;
+    height: $item-height;
+    margin-right: 20px;
+    background: $color-item-background;
+    &:last-child {
+      margin: 0;
+    }
+  &__thumbnail {
+    position: relative;
+    width: $thumb-side;
+    height: $thumb-side;
+    overflow: hidden;
+  }
+  &__blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: blur(40px);
+    z-index: 1;
+  }
+  &__image {
+    width: ($thumb-side / 2);
+    height: ($thumb-side / 2);;
+    border-radius: 50%;
+    z-index: 3;
+    @include center-center;
+  }
+  &__ring {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, .2) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(255, 255, 255, .2) 100%);
+    z-index: 2;
+    box-shadow: 4px 0 2px -4px rgba(255, 255, 255, .9), -4px 0 2px -4px rgba(255, 255, 255, .9);
+    @include center-center;
+    &--outer {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  &__label {
+    display: flex;
+    height: ($item-height - $thumb-side);
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 10px;
+  }
+}
+.capital {
+  color: darken($color-type, 50);
+  text-transform: uppercase;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+body {
+  @extend html;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $color-background;
+  color: $color-type;
+  font-family: Roboto;
+  font-size: 14px;
+}
+.h1 {
+  color: $color-type;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $color-background;
+  padding: 10px 20px;
+}
