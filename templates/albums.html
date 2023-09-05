@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Álbumes de {{ artist }}</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='albums.css') }}">
+  <title>Álbumes de {{ artist }}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='albums.css') }}">
 </head>
 <h1 class="h1">Álbumes de {{ artist }}</h1>
+
 <body>
-        <div class="artists-container">
-            {% for album in albums %}
-            <div class="artist">
-              <div class="artist__thumbnail">
-                <img class="artist__blur" src="{{ album.cover_url }}">
-                <img class="artist__image" src="{{ album.cover_url }}" alt="{{ album.name }}" width="300">
-                <div class="artist__ring"></div>
-                <div class="artist__ring artist__ring--outer"></div>
-              </div>
-              <div class="artist__label">
-                <p>{{ album.name }}</p>
-                <p class="capital">Artist's album</p>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
+  <div class="artists-container">
+    {% for album in albums %}
+    <div class="artist">
+      <div class="artist__thumbnail">
+        <img class="artist__blur" src="{{ album.cover_url }}">
+        <img class="artist__image" src="{{ album.cover_url }}" alt="{{ album.name }}" width="300">
+        <div class="artist__ring"></div>
+        <div class="artist__ring artist__ring--outer"></div>
+      </div>
+      <div class="artist__label">
+        <p>{{ album.name }}</p>
+        <p class="capital">Artist's album</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </body>
+
 </html>
